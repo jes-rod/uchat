@@ -92,7 +92,7 @@ const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({
             </p>
             <br />
             <p className="text-sm text-gray-300">
-            All your data including contact list and conversations will be removed. this action <strong>can't</strong> be undone.
+            All your data including contact list and conversations will be removed. this action <strong>can&apos;t</strong> be undone.
             </p>
           </div>
         </div>
