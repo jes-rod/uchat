@@ -48,12 +48,15 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
   const isAdmin = data.adminIds.includes(currentUser.id);
 
   const joinedDate = useMemo(() => {
-    return format(new Date(otherUser.createdAt), 'PP');
-  }, [otherUser.createdAt]);
+    if(!otherUser?.createdAt){
+      return ""
+    }
+    return format(new Date(otherUser?.createdAt), 'PP');
+  }, [otherUser?.createdAt]);
 
   const title = useMemo(() => {
-    return data.name || otherUser.name;
-  }, [data.name, otherUser.name]);
+    return data.name || otherUser?.name || 'Non existent user';
+  }, [data.name, otherUser?.name]);
 
   const { members } = useActiveList();
   const isActive = members.indexOf(otherUser?.email!) !== -1;
@@ -244,7 +247,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   sm:col-span-2
                                 "
                                   >
-                                    {otherUser.email}
+                                    {otherUser?.email}
                                   </dd>
                                 </div>
                               )}

@@ -3,17 +3,30 @@
 import useConversation from "@/app/hooks/useConversation";
 import useRoutes from "@/app/hooks/useRoutes";
 import MobileItem from "./MobileItem";
+import { User } from "@prisma/client";
+import { IoMdSettings } from "react-icons/io";
+import { useState } from "react";
+import SettingsModal from "../modals/SettingsModal";
+import MobileSettings from "./MobileSettings";
 
-const MobileFooter = () => {
+
+interface MobileFooterProps {
+  currentUser: User;
+}
+
+const MobileFooter: React.FC<MobileFooterProps> = ({currentUser}) => {
   const routes = useRoutes();
   const { isOpen } = useConversation();
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   if (isOpen) {
     return null;
   }
 
   return ( 
-    <div 
+    <>
+      <SettingsModal currentUser={currentUser} isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
+      <div 
       className="
         fixed 
         justify-between 
@@ -35,7 +48,15 @@ const MobileFooter = () => {
           onClick={route.onClick}
         />
       ))}
+        <MobileSettings 
+          key={currentUser.email} 
+          active={settingsOpen} 
+          icon={IoMdSettings }
+          onClick={() => setSettingsOpen(true)}
+        />
     </div>
+    </>
+
    );
 }
  

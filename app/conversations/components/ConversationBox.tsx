@@ -94,7 +94,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
           <span className="absolute inset-0" aria-hidden="true" />
           <div className="flex justify-between items-center mb-1">
             <p className="text-md font-medium text-slate-200">
-              {data.name || otherUser.name}
+              {data?.name || otherUser?.name || 'Non existent user'}
             </p>
             {lastMessage?.createdAt && (
               <p 

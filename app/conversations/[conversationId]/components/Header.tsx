@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ conversation , contacts, currentUser}) 
           <Avatar user={otherUser} />
         )}
         <div className="flex flex-col">
-          <div className='text-slate-100'>{conversation.name || otherUser.name}</div>
+          <div className='text-slate-100'>{conversation.name || otherUser?.name || "Non existent user"}</div>
           <div className="text-sm font-light text-slate-400	">
             {statusText}
           </div>

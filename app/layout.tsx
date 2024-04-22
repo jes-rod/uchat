@@ -5,7 +5,7 @@ import ToasterContext from './context/ToasterContext'
 
 export const metadata = {
   title: 'Uchat',
-  description: 'Closer than ever. Try this app chat and engage more than ever with your contacts and friends',
+  description: 'Closer than ever. Try this chat app and engage more than ever with your contacts and friends!',
 }
 
 export default function RootLayout({

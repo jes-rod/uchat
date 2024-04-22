@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import { FullMessageType } from "@/app/types";
@@ -11,7 +11,6 @@ import Link from "next/link";
 
 import Avatar from "@/app/components/Avatar";
 import ImageModal from "@/app/components/modals/ImageModal";
-import { GroupAdditions, User } from "@prisma/client";
 
 interface MessageBoxProps {
   data: FullMessageType;
@@ -99,7 +98,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
             <div className={body}>
               <div className="flex items-center gap-1">
                 <div className="text-sm text-gray-500">
-                  {data.sender.name}
+                  {data?.sender?.name || "Non existent user"}
                 </div>
                 <div className="text-xs text-gray-400">
                   {formatDate(new Date(data.createdAt))}

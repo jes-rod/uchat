@@ -9,10 +9,11 @@ import { storage } from '@/app/libs/firebase';
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from 'uuid';
 
-import Input from "../inputs/Input";
-import Modal from '../modals/Modal';
+import Input from '../inputs/Input';
+import Modal from './Modal';
 import Button from '../Button';
 import Image from 'next/image';
+import DeleteAccountModal from './DeleteAccountModal';
 import { toast } from 'react-hot-toast';
 
 interface SettingsModalProps {
@@ -24,10 +25,11 @@ interface SettingsModalProps {
 const SettingsModal: React.FC<SettingsModalProps> = ({ 
   isOpen, 
   onClose, 
-  currentUser = {}
+  currentUser
 }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [isDeleteAccountOpen, setIsDeleteAccountOpen] = useState(false);
   const imageButton = useRef<HTMLInputElement>(null);
 
   const {
@@ -81,7 +83,9 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <>
+      <DeleteAccountModal isOpen={isDeleteAccountOpen} onClose={() => setIsDeleteAccountOpen(false)} currentUser={currentUser}/>
+      <Modal isOpen={isOpen} onClose={onClose}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
@@ -140,7 +144,17 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                   </Button>
                 </div>
               </div>
-            </div>
+              <div>
+                  <Button
+                      disabled={isLoading}
+                      danger
+                      type="button"
+                      onClick={() => setIsDeleteAccountOpen(true)}
+                    >
+                      Delete account
+                  </Button>
+                </div>
+              </div>
           </div>
         </div>
 
@@ -169,6 +183,8 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
         </div>
       </form>
     </Modal>
+    </>
+    
   )
 }
 
