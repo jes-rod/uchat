@@ -57,8 +57,6 @@ Clone the project
   git clone https://github.com/jes-rod/uchat
 ```
 
-Go to the project directory
-
 Install dependencies
 
 ```bash
