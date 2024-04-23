@@ -1,11 +1,11 @@
 
 ![Logo](https://firebasestorage.googleapis.com/v0/b/uchat-6afe0.appspot.com/o/unichat-logo-slogan-rscale.jpg?alt=media&token=dbdea280-8f60-4559-afaa-36c1ce7e8d4a)
 
-# Unichat || Web chat application
+# Uchat || Web chat application
 
 Based on the [Messenger clone](https://www.youtube.com/watch?v=PGPGcKBpAk8) app created by Antonio Erdeljac. 
 
-Unichat is a fully functional real time chat application built in React/Next.js that allows you to chat with friends and contacts using their email address as an identifier. 
+Uchat is a fully functional real time chat application built in React/Next.js that allows you to chat with friends and contacts using their email address as an identifier. 
 
 You can create individual chats or group chats with their respective management settings for administrators to effectively moderate the content shared. Share files and multimedia thanks to the implemented Firebase storage that will handle all file requests. Personalize your own profile by changing your display name and avatar. 
 
