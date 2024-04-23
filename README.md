@@ -3,7 +3,7 @@
 
 # Uchat || Web chat application
 
-Based on the [Messenger clone](https://www.youtube.com/watch?v=PGPGcKBpAk8) app created by Antonio Erdeljac. 
+Based on the [Messenger clone](https://www.youtube.com/watch?v=PGPGcKBpAk8) app created by [Antonio Erdeljac](https://github.com/antonioerdeljac). 
 
 Uchat is a fully functional real time chat application built in React/Next.js that allows you to chat with friends and contacts using their email address as an identifier. 
 
